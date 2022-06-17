@@ -4,34 +4,31 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/stylesheets/style.css">
   <style>
     body {
       display: flex;
-      height: 100vh;
-      width: 100vw;
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
       background-color: rgb(26, 25, 25);
       color: white;
-      font-size: 2em;
+      font-size: 1.2em;
       text-align: left;
     }
     a {
-      width: 200px;
       padding: 10px 30px;
-      text-align: center;
       background-color: rgba(245, 222, 179, 0.329);
       color: inherit;
       text-decoration: none;
-      margin-bottom: 10px;
     }
   </style>
-  <title><%= title %></title>
+  <title>New Skill</title>
 </head>
 <body>
-  <h1><%= title %></h1>
-  <a href="/skills">Skills</a>
+  <h1>New Skill</h1>
+  <form action="/skills" method="POST" autocomplete="off">
+    <input type="text" name="text">
+    <button type="submit">Add Skill</button>
+  </form>
 </body>
 </html>

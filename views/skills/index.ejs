@@ -4,15 +4,74 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      background-color: rgb(26, 25, 25);
+      color: white;
+      font-size: 2em;
+      text-align: left;
+    }
+    a {
+      padding: 5px;
+      text-align: center;
+      color: inherit;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+    .links {
+      width: 200px;
+      padding: 10px 30px;
+      text-align: center;
+      background-color: rgba(245, 222, 179, 0.329);
+      color: inherit;
+      text-decoration: none;
+    }
+    ul {
+      margin-inline-start: 0;
+      padding: 0;
+    }
+    .skill-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 10px;
+      list-style: none;
+    }
+    li {
+      display: flex;
+    }
+    button {
+      color: red;
+      background-color: rgb(255, 255, 255);
+      border: 1px solid white;
+    }
+  </style>
   <title>Skills</title>
 </head>
 <body>
-  <ul>
+  <ul class="skill-list">
     <% skills.forEach(skill => { %>
       <li>
-        <%= skill.skill %>
+        <form
+          action="/skills/<%=skill._id%>?_method=DELETE"
+          method="POST"
+        >
+          <button type="submit">X</button>
+        </form>
+        <a href="/skills/<%= skill._id%>"><%= skill.text %></a>
+          -
+        <%= skill.favorite ? 'my favorite' : 'not favorite' %> 
       </li>
-    <% }) %>
+    <% }) %> 
   </ul>
+  <a class="links"href="/skills/new">Add Skill</a>
+  <a class="links"href="/">Home</a>
 </body>
 </html>
